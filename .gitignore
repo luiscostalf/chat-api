@@ -1,0 +1,16 @@
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+node_modules
+dist
+ts-node-**
+.v8flags**
+logs/*
+!logs/.gitkeep
+Dockerrun.aws.json
+docker
+deploy.zip
+settings.json
+data
