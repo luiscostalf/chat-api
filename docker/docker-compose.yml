@@ -1,0 +1,31 @@
+version: "3"
+services:
+  chat-app:
+    image: keymetrics/pm2:18-alpine
+    ports:
+      - "8089:8080"
+    environment: 
+      - env=dev
+    volumes:
+      - ../:/opt/chat-app
+    working_dir: /opt/chat-app
+    depends_on:
+      - mongodb
+    command: './scripts/run.js'
+  mongodb:
+      image: mongo:6.0.8
+      ports:
+        - '27017:27017'
+      volumes:
+        - ../data/db:/data/db
+      restart: always
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: 'luis'
+        MONGO_INITDB_ROOT_PASSWORD: 'password'
+        MONGO_INITDB_NET_BINDIP: '0.0.0.0'
+  
+
+networks:
+  default:
+    external:
+      name: dev

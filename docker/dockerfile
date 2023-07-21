@@ -1,0 +1,24 @@
+FROM keymetrics/pm2:18-alpine
+# rotate logs
+RUN pm2 install pm2@latest
+RUN pm2 install pm2-logrotate
+
+# RUN apt-get install openssh-server
+RUN apk --update add \
+    git \
+    openssh
+
+
+# Use git branch if you want to pull a specific branch
+#ARG GIT_BRANCH
+#RUN git clone -b ${GIT_BRANCH} git@github.com:luiscostalf/chat-app.git 
+RUN git clone -b main https://github.com/luiscostalf/chat-app.git 
+
+
+WORKDIR /opt/chat-app
+RUN mkdir /data/db
+RUN npm i && \
+    npm run build
+
+
+CMD ["./scripts/run.js"]

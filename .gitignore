@@ -10,7 +10,6 @@ ts-node-**
 logs/*
 !logs/.gitkeep
 Dockerrun.aws.json
-docker
 deploy.zip
 settings.json
 data
