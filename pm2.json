@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "chat-app",
+            "name": "chat-api",
             "script": "./dist/main.js",
             "log_date_format" : "YYYY-MM-DD HH:mm"
         }

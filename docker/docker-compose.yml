@@ -1,14 +1,14 @@
 version: "3"
 services:
-  chat-app:
+  chat-api:
     image: keymetrics/pm2:18-alpine
     ports:
       - "8089:8080"
     environment: 
       - env=dev
     volumes:
-      - ../:/opt/chat-app
-    working_dir: /opt/chat-app
+      - ../:/opt/chat-api
+    working_dir: /opt/chat-api
     depends_on:
       - mongodb
     command: './scripts/run.js'

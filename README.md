@@ -32,16 +32,16 @@ Before getting started, make sure you have the following prerequisites installed
 
 ## Configuration
 
-The Chat App comes with default configuration parameters to get you started quickly. However, you may need to customize these parameters based on your specific requirements. You can find the configuration under chat-app/src/config
+The Chat App comes with default configuration parameters to get you started quickly. However, you may need to customize these parameters based on your specific requirements. You can find the configuration under chat-api/src/config
 
 ### Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/chat-app.git
-   cd chat-app/docker
-   docker build . -t chat-app
+   git clone https://github.com/your-username/chat-api.git
+   cd chat-api/docker
+   docker build . -t chat-api
    docker-compose up -d
 
 ## Checking if the Chat App is Working
