@@ -12,11 +12,13 @@ RUN apk --update add \
 # Use git branch if you want to pull a specific branch
 #ARG GIT_BRANCH
 #RUN git clone -b ${GIT_BRANCH} git@github.com:luiscostalf/chat-app.git 
+WORKDIR /opt
 RUN git clone -b main https://github.com/luiscostalf/chat-app.git 
 
-
 WORKDIR /opt/chat-app
+RUN mkdir /data
 RUN mkdir /data/db
+
 RUN npm i && \
     npm run build
 
