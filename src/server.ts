@@ -141,7 +141,7 @@ export class SocketChatServer {
 
             //Get response from bot
             //Timeout is increased to allow the model to process the response
-            axios.post('http://emotions:80/referal/get-bot', { "message": message.message }, { timeout: 600000 }).then(response => {
+            axios.post('http://emotions:80/api/get-bot', { "message": message.message }, { timeout: 600000 }).then(response => {
                 if (message.visitorID) {
                     //Change message to the bot response
                     message.message = response.data.message
@@ -193,9 +193,9 @@ export class SocketChatServer {
             ChatMessage.validate(message);
 
             //Calls to sentiment API
-            let emotions = () => axios.post('http://emotions:80/referal/get-emotions', { "message": message.message })
-            let irony = () => axios.post('http://emotions:80/referal/get-irony', { "message": message.message })
-            let sentiment = () => axios.post('http://emotions:80/referal/get-sentiment', { "message": message.message })
+            let emotions = () => axios.post('http://emotions:80/api/get-emotions', { "message": message.message })
+            let irony = () => axios.post('http://emotions:80/api/get-irony', { "message": message.message })
+            let sentiment = () => axios.post('http://emotions:80/api/get-sentiment', { "message": message.message })
             let result = await Promise.all([emotions(), irony(), sentiment()])
                 .then(function (results) {
                     message.emotions = results[0].data;
