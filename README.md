@@ -1,4 +1,4 @@
-# Chat App
+# Chat API
 
 Chat App is a real-time chat application that allows users to send messages and interact with each other in real-time. The app uses Socket.IO for handling real-time communication, saves messages to MongoDB for persistence, and calls an external API to generate content for the messages.
 
